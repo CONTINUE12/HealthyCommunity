@@ -3,21 +3,18 @@
 #### 介绍
 基于SpringBoot2+Mybatis+Thymeleaf+AdminLTE3 的RIREE交互系统
 
-#### 软件架构
-软件架构说明
+#### 开发环境
+Windows 10，IDEA 2022.2，mysql8.0，maven3.6.1，tomcat9
 
+####技术栈
+SpringBoot2，Mybatis，Thymeleaf，lombok
 
-#### 安装教程
+####功能分析
+用户：查看康复教程，远程控制RIREE设备进行主动和被动模式康复训练，实时查看康复训练数据
+管理员：发布康复教程，发布康复知识链接，管理用户，系统配置修改
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+####演示地址
+http://60.205.125.6:8080/
 
 #### 参与贡献
 
