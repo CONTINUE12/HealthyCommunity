@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<footer class="footer blog-footer" th:fragment="footer-fragment">
+    <div class="blog-text-center">
+        &copy;
+        <a th:text="${configurations.get('footerAbout')}">RIREE.</a>  &nbsp;   • &nbsp;
+        Powered by <a href="https://github.com/CONTINUE12" target="_blank" th:text="${configurations.get('footerCopyRight')}">2022 薛定谔的喵</a><br/>
+        ICP <a th:text="${configurations.get('footerICP')}">NEU&Faculty of Robotics Science and Engineering</a>
+    </div>
+</footer>
+</html>

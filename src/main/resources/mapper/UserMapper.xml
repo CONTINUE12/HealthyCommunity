@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.site.blog.my.core.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.site.blog.my.core.entity.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="login_user_name" jdbcType="VARCHAR" property="loginUserName" />
+        <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+        <result column="locked" jdbcType="TINYINT" property="locked" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        user_id, login_user_name, login_password, nick_name, locked, create_time
+    </sql>
+
+    <select id="findUserList" parameterType="Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_user
+        <if test="keyword!=null">
+            where (login_user_name like CONCAT('%',#{keyword},'%' )) or (nick_name like CONCAT('%',#{keyword},'%' ))
+        </if>
+        order by user_id asc
+        <if test="start!=null and limit!=null">
+            limit #{start},#{limit}
+        </if>
+    </select>
+
+    <select id="getTotalUsers" parameterType="Map" resultType="int">
+        select count(*) from tb_user
+        <if test="keyword!=null">
+            where (login_user_name like CONCAT('%',#{keyword},'%' )) or (nick_name like CONCAT('%',#{keyword},'%' ))
+        </if>
+    </select>
+
+    <select id="login" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_user
+        where login_user_name = #{userName,jdbcType=VARCHAR} AND login_password=#{password,jdbcType=VARCHAR} AND locked = 0
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.site.blog.my.core.entity.User">
+        update tb_user
+        <set>
+            <if test="loginUserName != null">
+                login_user_name = #{loginUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="loginPassword != null">
+                login_password = #{loginPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="locked != null">
+                locked = #{locked,jdbcType=TINYINT},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+
+</mapper>

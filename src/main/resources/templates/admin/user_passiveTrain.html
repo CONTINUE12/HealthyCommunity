@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>训练数据监控</title>
+
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" th:href="@{/admin/plugins/fontawesome-free/css/all.min.css}">
+	<!-- Theme style -->
+	<link rel="stylesheet" th:href="@{/admin/dist/css/adminlte1.min.css}">
+</head>
+
+<header th:replace="admin/user_header::header-fragment">
+</header>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+	<!-- 引入页面头header-fragment -->
+	<div th:replace="admin/user_header::header-nav"></div>
+	<!-- 引入工具栏sidebar-fragment -->
+	<div th:replace="admin/user_sidebar::sidebar-fragment(${path})"></div>
+
+	<div class="content-wrapper">
+		<!-- Content Header (图标header) -->
+		<div class="content-header">
+			<div class="container-fluid">
+			</div><!-- /.container-fluid -->
+		</div>
+
+		<div class="content">
+			<div class="container-fluid">
+				<div class="card card-primary card-outline">
+					<div class="card-header">
+						<h3 class="card-title">开始训练</h3>
+					</div> <!-- /.card-body -->
+					<div class="card-body">
+						<div class="grid-btn">
+							<button class="btn btn-danger" onclick=""><i
+									class="fa fa-trash-o"></i>&nbsp;连接设备
+							</button>
+							<button class="btn btn-info" onclick=""><i
+									class="fa fa-plus"></i>&nbsp;启动
+							</button>
+							<button class="btn btn-info" onclick=""><i
+									class="fa fa-pencil-square-o"></i>&nbsp;停止
+							</button>
+						</div><!-- /.card-body -->
+					</div>
+				</div>
+			</div><!-- /.container-fluid -->
+		</div>
+
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+						<!-- AREA CHART -->
+						<div class="card card-primary">
+							<div class="card-header">
+								<h3 class="card-title">设备转速</h3>
+
+								<div class="card-tools">
+									<button type="button" class="btn btn-tool" data-card-widget="collapse">
+										<i class="fas fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-tool" data-card-widget="remove">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="chart">
+									<canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+								</div>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+
+						<!-- DONUT CHART -->
+						<div class="card card-danger">
+							<div class="card-header">
+								<h3 class="card-title">设备电流</h3>
+
+								<div class="card-tools">
+									<button type="button" class="btn btn-tool" data-card-widget="collapse">
+										<i class="fas fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-tool" data-card-widget="remove">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</div>
+							<div class="card-body">
+								<canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+
+					</div>
+					<!-- /.col (LEFT) -->
+					<div class="col-md-6">
+						<!-- LINE CHART -->
+						<div class="card card-info">
+							<div class="card-header">
+								<h3 class="card-title">区间位置</h3>
+
+								<div class="card-tools">
+									<button type="button" class="btn btn-tool" data-card-widget="collapse">
+										<i class="fas fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-tool" data-card-widget="remove">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="chart">
+									<canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+								</div>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+
+						<!-- BAR CHART -->
+						<div class="card card-success">
+							<div class="card-header">
+								<h3 class="card-title">设备力矩</h3>
+
+								<div class="card-tools">
+									<button type="button" class="btn btn-tool" data-card-widget="collapse">
+										<i class="fas fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-tool" data-card-widget="remove">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="chart">
+									<canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+								</div>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+
+					</div>
+					<!-- /.col (RIGHT) -->
+				</div>
+				<!-- /.row -->
+			</div><!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+
+	</div>
+</div>
+
+
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script th:src="@{/admin/plugins/jQueryUI/jquery-ui.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
+<!-- ChartJS -->
+<script th:src="@{/admin/plugins/chart.js/Chart.min.js}"></script>
+<!-- AdminLTE for demo purposes -->
+<script th:src="@{/admin/dist/js/demo1.js}"></script>
+<!-- jqgrid -->
+<script th:src="@{/admin/plugins/jqgrid-5.5.2/jquery.jqGrid.min.js}"></script>
+<script th:src="@{/admin/plugins/jqgrid-5.5.2/grid.locale-cn.js}"></script>
+<!-- image-picker -->
+<script th:src="@{/admin/plugins/image-picker/query.masonry.min.js}"></script>
+<script th:src="@{/admin/plugins/image-picker/image-picker.min.js}"></script>
+<!-- sweetalert -->
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script th:src="@{/admin/dist/js/public.js}"></script>
+<script th:src="@{/admin/dist/js/category.js}"></script>
+
+<!-- Page specific script -->
+<script>
+	$(function () {
+		/* ChartJS
+         * -------
+         * Here we will create a few charts using ChartJS
+         */
+
+		//--------------
+		//- AREA CHART -
+		//--------------
+
+		// Get context with jQuery - using jQuery's .get() method.
+		var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+		var areaChartData = {
+			labels  : ['one', 'two', 'three', 'four', 'five', 'six', 'seven'],
+			datasets: [
+				{
+					label               : 'Digital Goods',
+					backgroundColor     : 'rgba(60,141,188,0.9)',
+					borderColor         : 'rgba(60,141,188,0.8)',
+					pointRadius          : false,
+					pointColor          : '#3b8bba',
+					pointStrokeColor    : 'rgba(60,141,188,1)',
+					pointHighlightFill  : '#fff',
+					pointHighlightStroke: 'rgba(60,141,188,1)',
+					data                : [28, 48, 40, 19, 86, 27, 90]
+				},
+				{
+					label               : 'Electronics',
+					backgroundColor     : 'rgba(210, 214, 222, 1)',
+					borderColor         : 'rgba(210, 214, 222, 1)',
+					pointRadius         : false,
+					pointColor          : 'rgba(210, 214, 222, 1)',
+					pointStrokeColor    : '#c1c7d1',
+					pointHighlightFill  : '#fff',
+					pointHighlightStroke: 'rgba(220,220,220,1)',
+					data                : [65, 59, 80, 81, 56, 55, 40]
+				},
+			]
+		}
+
+		var areaChartOptions = {
+			maintainAspectRatio : false,
+			responsive : true,
+			legend: {
+				display: false
+			},
+			scales: {
+				xAxes: [{
+					gridLines : {
+						display : false,
+					}
+				}],
+				yAxes: [{
+					gridLines : {
+						display : false,
+					}
+				}]
+			}
+		}
+
+		// This will get the first returned node in the jQuery collection.
+		new Chart(areaChartCanvas, {
+			type: 'line',
+			data: areaChartData,
+			options: areaChartOptions
+		})
+
+		//-------------
+		//- LINE CHART -
+		//--------------
+		var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+		var lineChartOptions = $.extend(true, {}, areaChartOptions)
+		var lineChartData = $.extend(true, {}, areaChartData)
+		lineChartData.datasets[0].fill = false;
+		lineChartData.datasets[1].fill = false;
+		lineChartOptions.datasetFill = false
+
+		var lineChart = new Chart(lineChartCanvas, {
+			type: 'line',
+			data: lineChartData,
+			options: lineChartOptions
+		})
+
+		//-------------
+		//- DONUT CHART -
+		//-------------
+		// Get context with jQuery - using jQuery's .get() method.
+		var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+		var donutData        = {
+			labels: [
+				'one',
+				'two',
+				'three',
+				'four',
+				'five',
+				'six',
+			],
+			datasets: [
+				{
+					data: [700,500,400,600,300,100],
+					backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+				}
+			]
+		}
+		var donutOptions     = {
+			maintainAspectRatio : false,
+			responsive : true,
+		}
+		//Create pie or douhnut chart
+		// You can switch between pie and douhnut using the method below.
+		new Chart(donutChartCanvas, {
+			type: 'doughnut',
+			data: donutData,
+			options: donutOptions
+		})
+
+
+		//-------------
+		//- BAR CHART -
+		//-------------
+		var barChartCanvas = $('#barChart').get(0).getContext('2d')
+		var barChartData = $.extend(true, {}, areaChartData)
+		var temp0 = areaChartData.datasets[0]
+		var temp1 = areaChartData.datasets[1]
+		barChartData.datasets[0] = temp1
+		barChartData.datasets[1] = temp0
+
+		var barChartOptions = {
+			responsive              : true,
+			maintainAspectRatio     : false,
+			datasetFill             : false
+		}
+
+		new Chart(barChartCanvas, {
+			type: 'bar',
+			data: barChartData,
+			options: barChartOptions
+		})
+
+	})
+</script>
+
+</body>
+</html>

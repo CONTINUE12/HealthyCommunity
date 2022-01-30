@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="blog/amaze/header::head-fragment"></head>
+<body id="blog">
+<div th:replace="blog/amaze/header::nav-fragment"></div>
+<div th:replace="blog/amaze/header::header-fragment"></div>
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-lg-8 am-u-sm-12">
+        <main class="links-list">
+            <th:block th:unless="${#lists.isEmpty(recommendLinks)}">
+                <div class="title">
+                    <h3>推荐网站</h3>
+                </div>
+                <div class="list">
+                    <ul>
+                        <th:block th:each="recommendLink : ${recommendLinks}">
+                            <li><a th:href="@{${recommendLink.linkUrl}}" th:text="${recommendLink.linkName}">推荐网站</a>
+                                -
+                                <th:block th:text="${recommendLink.linkDescription}"></th:block>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </th:block>
+        </main>
+    </div>
+</div>
+<!-- 引入页脚footer-fragment -->
+<footer th:replace="blog/amaze/footer::footer-fragment"></footer>
+</body>
+</html>

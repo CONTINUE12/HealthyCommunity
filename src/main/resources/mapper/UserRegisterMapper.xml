@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.site.blog.my.core.dao.UserRegisterMapper">
+    <resultMap id="BaseResultMap" type="com.site.blog.my.core.entity.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="login_user_name" jdbcType="VARCHAR" property="loginUserName" />
+        <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+        <result column="locked" jdbcType="TINYINT" property="locked" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        user_id, login_user_name, login_password, nick_name, locked, create_time
+    </sql>
+
+    <insert id="insertUser" parameterType="com.site.blog.my.core.entity.User">
+        insert into tb_user (login_user_name, login_password, nick_name)
+        values
+        (
+        #{loginUserName,jdbcType=VARCHAR},
+        #{loginPassword,jdbcType=VARCHAR},
+        #{nickName,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="selectByUserName" parameterType="java.lang.String" resultType="int">
+        select count(*)
+        from tb_user
+        where login_user_name = #{userName,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByNickName" parameterType="java.lang.String" resultType="int">
+        select count(*)
+        from tb_user
+        where nick_name = #{nickName,jdbcType=VARCHAR}
+    </select>
+
+</mapper>
