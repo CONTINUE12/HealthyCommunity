@@ -1,13 +1,13 @@
 # RIREE
 
 #### 介绍
-基于SpringBoot2+Mybatis+Thymeleaf+AdminLTE3 的RIREE交互系统
+基于Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLTE3、JqGrid 的RIREE交互系统
 
 #### 开发环境
 Windows 10，IDEA 2022.2，mysql8.0，maven3.6.1，tomcat9
 
 #### 技术栈
-SpringBoot2，Mybatis，Thymeleaf，lombok
+Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLTE3、JqGrid.
 
 #### 功能分析
 用户：查看康复教程，远程控制RIREE设备进行主动和被动模式康复训练，实时查看康复训练数据
