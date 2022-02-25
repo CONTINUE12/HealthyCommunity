@@ -17,12 +17,9 @@ Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLT
 - 用户：查看康复教程，远程控制RIREE设备进行主动和被动模式康复训练，实时查看康复训练数据
 - 管理员：发布康复教程，发布康复知识链接，管理用户，系统配置修改
 
-#### 参与贡献
+#### 项目讲解博客
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+https://blog.csdn.net/qq_39144436/article/details/123139534
 
 #### 特技
 
