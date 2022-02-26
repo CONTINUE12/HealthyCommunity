@@ -8,7 +8,7 @@
 
 Windows 10，IDEA 2022.2，mysql8.0，maven3.6.1，tomcat9
 
-#### 技术栈
+#### 技术栈 
 
 Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLTE3、JqGrid.
 
