@@ -21,8 +21,7 @@ Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLT
 
 https://blog.csdn.net/qq_39144436/article/details/123139534
 
-#### 特技
+#### 其他仓库项目链接
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
+基于微服务架构，包括网上预约挂号业务和肺癌风险评估业务，旨在缓解挂号难、看病难的就医难题。
+https://github.com/CONTINUE12/PMP
