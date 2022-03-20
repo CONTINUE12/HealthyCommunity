@@ -23,5 +23,7 @@ https://blog.csdn.net/qq_39144436/article/details/123139534
 
 #### 其他仓库项目链接
 
-基于微服务架构，包括网上预约挂号业务和肺癌风险评估业务，旨在缓解挂号难、看病难的就医难题。
+1.基于微服务架构，包括网上预约挂号业务和肺癌风险评估业务，旨在缓解挂号难、看病难的就医难题。
 https://github.com/CONTINUE12/PMP
+2.基于Spring+SpringMVC+Mybatis的图书管理系统
+https://github.com/CONTINUE12/SSM_LibrarySystem
