@@ -2,7 +2,7 @@
 
 #### 介绍
 
-基于Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLTE3、JqGrid 的RIREE交互系统
+基于Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLTE3、JqGrid 的健康社区系统
 
 #### 开发环境
 
