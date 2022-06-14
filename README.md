@@ -23,17 +23,14 @@ https://blog.csdn.net/qq_39144436/article/details/123139534
 
 #### 其他仓库项目链接
 
-1.基于微服务架构，包括网上预约挂号业务和肺癌风险评估业务，旨在缓解挂号难、看病难的就医难题。
-https://github.com/CONTINUE12/PMP
-
-2.基于Spring+SpringMVC+Mybatis的图书管理系统
+1.基于Spring+SpringMVC+Mybatis的图书管理系统
 https://github.com/CONTINUE12/SSM_LibrarySystem
 
-3.基于SpringBoot2.0+Mybatis的学生成绩管理系统
+2.基于SpringBoot2.0+Mybatis的学生成绩管理系统
 https://github.com/CONTINUE12/SpringBoot_StudentManagerSystem
 
-4.基于JAVAWEB的超市订单管理系统SMBMS
+3.基于JAVAWEB的超市订单管理系统SMBMS
 https://github.com/CONTINUE12/Javaweb-SMBMS
 
-5.基于AWT和Swing及MYSQL开发的学校教务系统
+4.基于AWT和Swing及MYSQL开发的学校教务系统
 https://github.com/CONTINUE12/JavaSE_School_Management_System
