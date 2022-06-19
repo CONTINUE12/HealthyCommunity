@@ -2,7 +2,7 @@
 
 #### 介绍
 
-基于Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLTE3、JqGrid 的健康社区系统
+基于Spring Boot、Mybatis、MySQL、Lombok、Redis、Thymeleaf、AdminLTE3、JqGrid 的健康社区系统
 
 #### 开发环境
 
@@ -10,16 +10,12 @@ Windows 10，IDEA 2022.2，mysql8.0，maven3.6.1，tomcat9
 
 #### 技术栈 
 
-Spring Boot、Mybatis、MySQL、Lombok、Web Bluetooth API、Thymeleaf、AdminLTE3、JqGrid.
+Spring Boot、Mybatis、MySQL、Lombok、Redis、Thymeleaf、AdminLTE3、JqGrid
 
 #### 功能分析
 
-- 用户：查看康复教程，远程控制RIREE设备进行主动和被动模式康复训练，实时查看康复训练数据
-- 管理员：发布康复教程，发布康复知识链接，管理用户，系统配置修改
-
-#### 项目讲解博客
-
-https://blog.csdn.net/qq_39144436/article/details/123139534
+- 用户：分栏目、分标签的查看健康维护知识相关的文章，也可以搜索自己感兴趣的文章，并进行评论交流，也可以点击友情链接进一步了解相关的知识。
+- 管理员：管理健康社区的栏目、标签、知识文章的发布、评论审核、友情链接的创建等。
 
 #### 其他仓库项目链接
 
